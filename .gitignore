@@ -4,4 +4,4 @@
 
 bin/
 obj/
-playwright\.auth
+playwright/.auth
