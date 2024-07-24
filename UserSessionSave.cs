@@ -65,17 +65,17 @@ public class UserSessionSave
     [Test]
     public async Task SeleniumSearch()
     {
-        // 4.клік на "View more courses"
+        // 4.Click "View more courses"
         await Page.GetByRole(AriaRole.Link, new() { Name = "View more courses" }).ClickAsync();
-        // 5.в полі Search вводив "Selenium" та натиск клавіші Enter
+        // 5.Search by text "Selenium" hit Enter
         await Page.GetByPlaceholder("Search").FillAsync("Selenium");
         await Page.GetByPlaceholder("Search").PressAsync("Enter");
-        // 6.перевіряв що відобразились курси які мають в назві Selenium
+        // 6.Verify Selenium courses isVisible 
         await Assertions.Expect(Page.GetByText("Selenium", new() { Exact = true })).ToBeVisibleAsync();
         await Assertions.Expect(Page.GetByRole(AriaRole.Link, new() { Name = "Complete Selenium WebDriver with Java Bootcamp Course star 5.0 average rating (8 reviews) $" })).ToBeVisibleAsync();
-        // 7.клік на "My Dashboard"
+        // 7.CLick on "My Dashboard"
         await Page.GetByRole(AriaRole.Link, new() { Name = "My Dashboard" }).ClickAsync();
-        // 8.перевірити що відображаться "Welcome back, <username>!"
+        // 8.Verify text "Welcome back, <username>!" isBeVisible
         await Assertions.Expect(Page.GetByRole(AriaRole.Heading, new() { Name = "Welcome back, FirstName L!" })).ToBeVisibleAsync();
     }
 }
