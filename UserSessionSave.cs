@@ -1,9 +1,5 @@
 using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Microsoft.Playwright;
-using Microsoft.Playwright.NUnit;
-using NUnit.Framework;
 
 namespace PlaywrightTests;
 
@@ -21,7 +17,7 @@ public class UserSessionSave
         var playwrightDriver = await Playwright.CreateAsync();
         browser = await playwrightDriver.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
         {
-            Headless = false
+            Headless = true
         });
 
         var storagePath = "../../../playwright/.auth/state.json";
