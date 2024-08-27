@@ -17,7 +17,7 @@ public class UserSessionSave
         var playwrightDriver = await Playwright.CreateAsync();
         browser = await playwrightDriver.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
         {
-            Headless = false
+            Headless = true
         });
 
         var storagePath = "../../../playwright/.auth/state.json";
